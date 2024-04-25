@@ -1,11 +1,6 @@
 -- Creates a view need_meeting
 CREATE VIEW need_meeting AS
-SELECT name
+SELECT s.name
 FROM students s
-WHERE score < 80
-AND NOT EXISTS (
-	SELECT 1
-	FROM meetings M
-	WHERE m.student_id = s.id
-	AND m.meeting_data > DATE_SUB(NOW(), INTERVAL 1 MONTH)
-);
+LEFT JOIN meetings m ON s.id = m.student_id AND m.meeting_date > DATE_SUB(NOW(), INTERVAL 1 MONTH)
+WHERE s.score < 80 AND m.meeting_id IS NULL;
