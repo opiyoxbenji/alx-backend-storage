@@ -1,2 +1,2 @@
 // Task 13 - regex filter
-db.school.find({name: /Holberton. */}).forEach(printjson)
+db.school.find({name: /Holberton.*/}).forEach(printjson);
