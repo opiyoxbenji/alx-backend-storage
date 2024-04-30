@@ -1,12 +1,12 @@
 #!/usr/bin/env python3
 """
-Task 9 - inserting a document in python
+Task 9
 """
 
 
 def insert_school(mongo_collection, **kwargs):
     """
-    inserts a new document in a collection based on kwargs
+    Inserts a file in the database
     """
-    files_ins = mongo_collection.insert_one(kwargs)
+    file_ins = mongo_collection.insert_one(kwargs)
     return file_ins.inserted_id
